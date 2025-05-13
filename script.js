@@ -1,8 +1,12 @@
-const currentDate = new Date();
-console.log("Current Date:", currentDate);
-
 const targetDate = new Date('2025-08-25T09:45:50');
-console.log("Target Date:", targetDate);
+
+// Кешуємо DOM-елементи
+const daysEl = document.getElementById('days');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
+const timerEl = document.getElementById('timer');
+const countdownEl = document.getElementById('Countdown');
 
 function updateTimer() {
     const now = new Date();
@@ -10,9 +14,9 @@ function updateTimer() {
 
     if (timeDiff <= 0) {
         clearInterval(timerInterval);
-        document.getElementById('timer').innerHTML = "Подія почалася!";
+        timerEl.innerHTML = "Подія почалася!";
         document.body.style.background = "linear-gradient(135deg, #ff6f61, #d83a56)";
-        document.getElementById('countdown').style.background = "rgba(0, 0, 0, 0.9)";
+        countdownEl.style.background = "rgba(0, 0, 0, 0.9)";
         return;
     }
 
@@ -21,11 +25,11 @@ function updateTimer() {
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+    daysEl.textContent = days;
+    hoursEl.textContent = hours.toString().padStart(2, '0');
+    minutesEl.textContent = minutes.toString().padStart(2, '0');
+    secondsEl.textContent = seconds.toString().padStart(2, '0');
 }
 
-// Оновлюємо таймер кожну секунду
 const timerInterval = setInterval(updateTimer, 1000);
+updateTimer(); // Викликаємо одразу, щоб не чекати 1 секунду

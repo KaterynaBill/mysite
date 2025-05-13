@@ -6,14 +6,13 @@ body {
     height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, #6dd5ed, #2193b0, #ff6f61, #d83a56);
+    background-size: 400% 400%;
     color: white;
     padding: 20px;
     box-sizing: border-box;
     animation: gradient-animation 10s ease infinite;
-    background-size: 400% 400%;
 }
 
-/* Анімація градієнта */
 @keyframes gradient-animation {
     0% {
         background-position: 0% 50%;
@@ -28,7 +27,7 @@ body {
     }
 }
 
-#countdown {
+#Countdown {
     background: rgba(0, 0, 0, 0.7);
     padding: 40px 60px;
     border-radius: 15px;
@@ -41,7 +40,6 @@ body {
     animation: fade-in 1s forwards ease-in-out;
 }
 
-/* Анімація появи контейнера */
 @keyframes fade-in {
     to {
         opacity: 1;
@@ -57,11 +55,9 @@ body {
     gap: 15px;
     flex-wrap: wrap;
     animation: pulse 2s infinite ease-in-out;
+    will-change: transform;
 }
 
-
-
-/* Анімація пульсації таймера */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -96,7 +92,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    #countdown {
+    #Countdown {
         padding: 30px 40px;
     }
 
