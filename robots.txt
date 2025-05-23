@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /cart/
+Disallow: /search
+Disallow: /admin/
+Allow: /blog/
+Allow: /category/
+Sitemap: https://katerynabill.github.io/mysite/sitemap.xml
